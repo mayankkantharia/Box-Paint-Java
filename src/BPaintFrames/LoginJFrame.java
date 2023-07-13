@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package BPaintFrames;
+
 import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -13,6 +14,7 @@ import javax.swing.JOptionPane;
  * @author abc
  */
 public class LoginJFrame extends javax.swing.JFrame {
+
     /**
      * Creates new form MainBoxPaint
      */
@@ -64,9 +66,12 @@ public class LoginJFrame extends javax.swing.JFrame {
         jLabel5.setText("jLabel5");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setEnabled(false);
+        setMaximumSize(new java.awt.Dimension(600, 300));
+        setMinimumSize(new java.awt.Dimension(600, 300));
         setName("f1"); // NOI18N
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(560, 340));
+        setPreferredSize(new java.awt.Dimension(600, 300));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -131,6 +136,9 @@ public class LoginJFrame extends javax.swing.JFrame {
         jp1.setBounds(0, 0, 560, 60);
 
         jpl2.setBackground(new java.awt.Color(204, 204, 255));
+        jpl2.setMaximumSize(new java.awt.Dimension(559, 280));
+        jpl2.setMinimumSize(new java.awt.Dimension(559, 280));
+        jpl2.setPreferredSize(new java.awt.Dimension(559, 280));
 
         jLabel4.setFont(new java.awt.Font("SquareSlab Med", 0, 24)); // NOI18N
         jLabel4.setText("Username:");
@@ -180,17 +188,19 @@ public class LoginJFrame extends javax.swing.JFrame {
                 .addGap(42, 42, 42)
                 .addGroup(jpl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jpl2Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jpl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(password_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)))
-                    .addGroup(jpl2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(User_name_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .addComponent(User_name_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jpl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpl2Layout.createSequentialGroup()
+                            .addComponent(jLabel7)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpl2Layout.createSequentialGroup()
+                            .addComponent(jLabel6)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(password_tf, javax.swing.GroupLayout.PREFERRED_SIZE, 364, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         jpl2Layout.setVerticalGroup(
             jpl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -203,15 +213,15 @@ public class LoginJFrame extends javax.swing.JFrame {
                 .addGroup(jpl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(password_tf, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE))
-                .addGap(15, 15, 15)
-                .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jLabel7)
-                .addGap(67, 67, 67))
+                .addGap(29, 29, 29)
+                .addGroup(jpl2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(LoginBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(105, 105, 105))
         );
 
         getContentPane().add(jpl2);
-        jpl2.setBounds(0, 60, 560, 280);
+        jpl2.setBounds(0, 60, 560, 220);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -245,56 +255,73 @@ public class LoginJFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         Connection conn;
         ResultSet rs;
-        int flag=0;
+        int flag = 0;
         PreparedStatement pst;
         String username, pass, query;
-        if(evt.getSource()==LoginBTN)
-        {
-            try
-            {
+        if (evt.getSource() == LoginBTN) {
+            try {
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/boxpaintdb?" + "user=root");
                 System.out.print("Connected Successfully to boxpaintdb ...!!!");
-                username=User_name_tf.getText();              
-                pass=String.valueOf(password_tf.getPassword()); 
-                
-                if(username.equals(""))
-                {
-                    JOptionPane.showMessageDialog(null,"Add a USERNAME");
-                    flag=1;
-                }               
-                else if(pass.equals(""))
-                {
-                    JOptionPane.showMessageDialog(null,"Enter Password...!!!");
-                    flag=1;
+                username = User_name_tf.getText();
+                pass = String.valueOf(password_tf.getPassword());
+
+                if (username.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Add a USERNAME");
+                    flag = 1;
+                } else if (pass.equals("")) {
+                    JOptionPane.showMessageDialog(null, "Enter Password...!!!");
+                    flag = 1;
+                } else {
+                    int upChars = 0, lowChars = 0;
+                    int special = 0, digits = 0;
+                    char ch;
+                    int total = pass.length();
+                    if (total < 8) {
+                        JOptionPane.showMessageDialog(null, "Password Should be greater than 8 letters...!!!");
+                        return;
+                    } else {
+                        for (int i = 0; i < total; i++) {
+                            ch = pass.charAt(i);
+                            if (Character.isUpperCase(ch)) {
+                                upChars = 1;
+                            } else if (Character.isLowerCase(ch)) {
+                                lowChars = 1;
+                            } else if (Character.isDigit(ch)) {
+                                digits = 1;
+                            } else {
+                                special = 1;
+                            }
+                        }
+                    }
+                    if (upChars == 1 && lowChars == 1 && digits == 1 && special == 1) {
+                        JOptionPane.showMessageDialog(null, "The Password is Strong....!!!");
+                        flag = 0;
+                    } else {
+                        JOptionPane.showMessageDialog(null, "The Password is Weak....!!!");
+                        flag = 1;
+                    }
                 }
-                
-                query="SELECT * FROM `register_table` WHERE `USER_NAME`=? AND `PASSWORD`=?";
+                query = "SELECT * FROM `register_table` WHERE `USER_NAME`=? AND `PASSWORD`=?";
                 pst = conn.prepareStatement(query);
                 pst.setString(1, username);
                 pst.setString(2, pass);
-                rs=pst.executeQuery();
-                
-                if(flag==0 && rs.next())
-                {
-                    JOptionPane.showMessageDialog(null,"Login Successful .. Click OK to continue..");
-                    MainBox123 mb=new MainBox123();
+                rs = pst.executeQuery();
+                if (flag == 0 && rs.next()) {
+                    JOptionPane.showMessageDialog(null, "Login Successful .. Click OK to continue..");
+                    MainBox123 mb = new MainBox123();
                     mb.setVisible(true);
                     mb.pack();
                     mb.setLocationRelativeTo(null);
                     mb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     this.dispose();
-                }  
-                else if(flag==0)
-                {
-                    JOptionPane.showMessageDialog(null,"Please Enter Valid Details...!!!");
-                }                
-            } 
-            catch(ClassNotFoundException | NumberFormatException | SQLException e)
-            {
+                } else if (flag == 0) {
+                    JOptionPane.showMessageDialog(null, "Please Enter Valid Details...!!!");
+                }
+            } catch (ClassNotFoundException | NumberFormatException | SQLException e) {
                 System.out.println(e);
             }
-        } 
+        }
     }//GEN-LAST:event_LoginBTNActionPerformed
 
     /**

@@ -206,17 +206,24 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel5" max="32767" attributes="0"/>
-                      <Component id="jLabel6" alignment="0" pref="124" max="32767" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                      <Component id="pass_word" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
-                      <Component id="User_name" alignment="0" min="-2" pref="224" max="-2" attributes="0"/>
-                      <Component id="Full_name" min="-2" pref="356" max="-2" attributes="0"/>
-                      <Component id="RegisterBTN" alignment="0" min="-2" pref="114" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel5" max="32767" attributes="0"/>
+                              <Component id="jLabel6" alignment="0" pref="124" max="32767" attributes="0"/>
+                          </Group>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="Full_name" pref="356" max="32767" attributes="0"/>
+                              <Component id="User_name" alignment="0" max="32767" attributes="0"/>
+                              <Component id="pass_word" alignment="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" attributes="0">
+                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="224" max="32767" attributes="0"/>
+                          <Component id="RegisterBTN" min="-2" pref="114" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace pref="74" max="32767" attributes="0"/>
               </Group>
@@ -240,11 +247,12 @@
                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
                       <Component id="pass_word" min="-2" pref="34" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="RegisterBTN" min="-2" pref="42" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-                  <Component id="jLabel8" pref="41" max="32767" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="RegisterBTN" alignment="3" min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="jLabel8" alignment="3" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="40" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

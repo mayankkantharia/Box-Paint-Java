@@ -10097,7 +10097,7 @@ public class MainBox123 extends JFrame {
             graphics2D.scale(0.5, 0.5);
             jPanel3.printComponents(graphics2D);
             //jPanel3.paintComponents(graphics2D);
-            //return if pade exists
+            //return if paga exists
             return Printable.PAGE_EXISTS;
         });
         //Store printerDialogue
